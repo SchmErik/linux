@@ -53,7 +53,7 @@ static ssize_t acpi_table_aml_write(struct config_item *cfg,
 	if (!table->header)
 		return -ENOMEM;
 
-	ret = acpi_load_table(table->header);
+	ret = acpi_load_table(table->header, &table->index);
 	if (ret) {
 		kfree(table->header);
 		table->header = NULL;
